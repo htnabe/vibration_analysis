@@ -1,6 +1,6 @@
 # calculate natural angular frequencies and vectors varying a
 clear;
-disp ("Start\n")
+disp ("Start")
 
 b = 0.500; c = 0.050; # 幅b，厚さc
 r = 1.52*10^3; # 密度
@@ -18,6 +18,8 @@ end
 Q_xyxy = 5.61*10^9; Q_yzyz = 3.17*10^9; # せん断弾性係数
 Q_xzxz = Q_xyxy; # 二次元直交異方性材料の場合の仮定
 l = m = n = 1; # モード次数
+
+test_variables(b, c, r, E_xx, E_yy, E_zz, n_xy, n_yz, n_xz, Q_xyxy, Q_yzyz, Q_xzxz);
 
 Delta = 1 - n_xy * n_yx - n_xz * n_zx - n_yz * n_zy - n_xy * n_yz * n_zx - n_xz * n_yx * n_zy;
 Q_xxxx = E_xx * ((1 - n_yz * n_zy)/Delta);
@@ -83,12 +85,10 @@ for cnt = 1:14001
   cnt++;
 endfor
 
-# 固有角振動数の書き込み
+# 固有角振動数, 固有ベクトルの書き込み
 write_naf(cnt, measure, N_freq_1, 1);
 write_naf(cnt, measure, N_freq_2, 2);
 write_naf(cnt, measure, N_freq_3, 3);
-
-# 固有ベクトルの書き込み
 write_eigen_vector(cnt, measure, N_vec_1, 1);
 write_eigen_vector(cnt, measure, N_vec_2, 2);
 write_eigen_vector(cnt, measure, N_vec_3, 3);
