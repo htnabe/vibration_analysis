@@ -19,7 +19,7 @@ Q_xyxy = 5.61*10^9; Q_yzyz = 3.17*10^9; # せん断弾性係数
 Q_xzxz = Q_xyxy; # two dimensinal orthotropy's condition
 l = m = n = 1; # mode degree
 
-test_variables(a, c, r, E_xx, E_yy, E_zz, n_xy, n_yz, n_xz, Q_xyxy, Q_yzyz, Q_xzxz);
+test_variables(b, c, r, E_xx, E_yy, E_zz, n_xy, n_yz, n_xz, Q_xyxy, Q_yzyz, Q_xzxz);
 
 Delta = 1 - n_xy * n_yx - n_xz * n_zx - n_yz * n_zy - n_xy * n_yz * n_zx - n_xz * n_yx * n_zy;
 Q_xxxx = E_xx * ((1 - n_yz * n_zy)/Delta);
