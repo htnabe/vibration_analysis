@@ -12,9 +12,9 @@ function test_variables(leng, thickness, density, Ex, Ey, Ez, nxy, nyz, nxz, Gxy
   t_Gyz = 3.17 * 10^9;
   t_Gxz = 5.61 * 10^9;
   if (t_leng != leng || t_thickness != thickness || t_density != density || t_Ex != Ex || t_Ey != Ey || t_Ez != Ez || t_nxy != nxy || t_nyz != nyz || t_nxz != nxz || t_Gxy != Gxy || t_Gxz != Gxz || t_Gyz != Gyz)
-    disp("Wrong variable(s) is inputted. Stop this process!");
+    error('Wrong variable(s) is inputted. Stop this process!')
   end
   if (leng < 0 || thickness < 0 || density < 0 || Ex < 0 || Ey < 0 || Ez < 0 || nxy < 0 || nyz < 0 || nxz < 0 || Gxy < 0 || Gyz < 0 || Gyz < 0)
-    disp("Negative dimension value(s) has been entered. Stop this process!");
+    error('Negative dimension value(s) has been entered. Stop this process!');
   end
 end
