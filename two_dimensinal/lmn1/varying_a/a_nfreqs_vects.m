@@ -29,11 +29,34 @@ Q_yyyy = E_yy * ((1 - n_xz * n_zx)/Delta);
 Q_yyzz = E_yy * ((n_zy + n_xy * n_zx)/Delta);
 Q_zzzz = E_zz * ((1 - n_xy * n_yx)/Delta);
 
-# havenothing with iteration
+# have nothing with iteration
 N_11_term = Q_xyxy * ((m*pi)/b)^2 + Q_xzxz * ((n*pi)/c)^2;
 N_22_term = Q_yzyz * ((n*pi)/c)^2 + Q_yyyy * ((m*pi)/b)^2;
 N_33_term = Q_zzzz * ((n*pi)/c)^2 + Q_yzyz * ((m*pi)/b)^2;
 
+# Arrays consist of elements to be tested
+measures_density = [b, c, r];
+young_modulus = [E_xx, E_yy, E_zz];
+poisson_ratios = [n_xy, n_yz, n_xz, n_yx, n_zy, n_zx];
+modulus_rigidity = [Q_xyxy, Q_yzyz, Q_xzxz];
+Qs = [Q_xxxx, Q_xxyy, Q_xxzz, Q_yyyy, Q_yyzz, Q_zzzz];
+part_Ns = [N_11_term, N_22_term, N_33_term];
+mode_degrees = [l, m, n];
+
+test_not_itr_related_variables(measures_density, young_modulus, poisson_ratios, modulus_rigidity, Delta, Qs, part_Ns, mode_degrees);
+
+  # make randam array for test in iteration
+  is_enough_randum_num = false;
+  while(!is_enough_randum_num)
+    randum_num_array = round((14000 - 1).*rand(10, 1)+1); # 1 < randum number < 14000
+    unique_num_array = unique(randum_num_array);
+    unique_size = size(unique_num_array)(1);
+    if(unique_size == 10)
+      is_enough_randum_num = true;
+    end
+  end
+
+# checked the program below w/ Mathematica
 for cnt = 1:14001
   a = 10^(-5+0.0005*(cnt-1));
   measure(cnt) = a;
@@ -47,6 +70,32 @@ for cnt = 1:14001
   N_32 = (Q_yyzz + Q_yzyz) * (m*n*pi^2)/(b*c);
   N_33 = Q_xzxz * ((l*pi)/a)^2 + N_33_term;
   N = [N_11, N_12, N_13; N_21, N_22, N_23; N_31, N_32, N_33];
+
+  # test the values in this iteration, but only for powers of 10
+  switch (cnt)
+    case unique_num_array(1)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(2)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(3)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(4)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(5)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(6)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(7)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(8)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(9)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    case unique_num_array(10)
+      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    otherwise
+  end
+
   [V(:,:,cnt), LAMBDA(:,:,cnt)] = eig (N);
 
   # make one of an eigen vector's element plus
