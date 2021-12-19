@@ -15,7 +15,7 @@ for array = [n_yx n_zy n_zx]
   test_poisson(array);
 end
 
-Q_xyxy = 5.61*10^9; Q_yzyz = 3.17*10^9; # せん断弾性係数
+Q_xyxy = 5.61*10^9; Q_yzyz = 3.17*10^9; # modulus of rigidity
 Q_xzxz = Q_xyxy; # two dimensinal orthotropy's condition
 l = m = n = 1; # mode degree
 
