@@ -45,13 +45,13 @@ mode_degrees = [l, m, n];
 
 test_not_itr_related_variables(measures_density, young_modulus, poisson_ratios, modulus_rigidity, Delta, Qs, part_Ns, mode_degrees);
 
-  # make randam array for test in iteration
+  # make randam array(100) for test in iteration
   is_enough_randum_num = false;
   while(!is_enough_randum_num)
-    randum_num_array = round((14000 - 1).*rand(10, 1)+1); # 1 < randum number < 14000
+    randum_num_array = round((14000 - 1).*rand(100, 1)+1); # 1 < randum number < 14000
     unique_num_array = unique(randum_num_array);
     unique_size = size(unique_num_array)(1);
-    if(unique_size == 10)
+    if(unique_size == 100)
       is_enough_randum_num = true;
     end
   end
@@ -72,28 +72,9 @@ for cnt = 1:14001
   N = [N_11, N_12, N_13; N_21, N_22, N_23; N_31, N_32, N_33];
 
   # test the values in this iteration, but only for powers of 10
-  switch (cnt)
-    case unique_num_array(1)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(2)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(3)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(4)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(5)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(6)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(7)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(8)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(9)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    case unique_num_array(10)
-      test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
-    otherwise
+  exist_row = find(randum_num_array == cnt);
+  if(size(exist_row)(1) == 1)  # if false, this should be 0.
+    test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
   end
 
   [V(:,:,cnt), LAMBDA(:,:,cnt)] = eig (N);
