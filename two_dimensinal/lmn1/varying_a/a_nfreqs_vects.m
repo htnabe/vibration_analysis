@@ -35,7 +35,7 @@ N_22_term = Q_yzyz * ((n*pi)/c)^2 + Q_yyyy * ((m*pi)/b)^2;
 N_33_term = Q_zzzz * ((n*pi)/c)^2 + Q_yzyz * ((m*pi)/b)^2;
 
 # Arrays consist of elements to be tested
-measures_density = [b, c, r];
+measures = [b, c];
 young_modulus = [E_xx, E_yy, E_zz];
 poisson_ratios = [n_xy, n_yz, n_xz, n_yx, n_zy, n_zx];
 modulus_rigidity = [Q_xyxy, Q_yzyz, Q_xzxz];
@@ -43,7 +43,7 @@ Qs = [Q_xxxx, Q_xxyy, Q_xxzz, Q_yyyy, Q_yyzz, Q_zzzz];
 part_Ns = [N_11_term, N_22_term, N_33_term];
 mode_degrees = [l, m, n];
 
-test_not_itr_related_variables(measures_density, young_modulus, poisson_ratios, modulus_rigidity, Delta, Qs, part_Ns, mode_degrees);
+test_not_itr_related_variables(measures, young_modulus, poisson_ratios, modulus_rigidity, Delta, Qs, part_Ns, mode_degrees);
 
   # make randam array(100) for test in iteration
   is_enough_randum_num = false;
@@ -74,7 +74,7 @@ for cnt = 1:14001
   # test the values in this iteration, but only for powers of 10
   exist_row = find(randum_num_array == cnt);
   if(size(exist_row)(1) == 1)  # if false, this should be 0.
-    test_itr_related_variables(a, measures_density, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
+    test_itr_related_variables(a, measures, modulus_rigidity, Qs, mode_degrees, part_Ns, N);
   end
 
   [V(:,:,cnt), LAMBDA(:,:,cnt)] = eig (N);
