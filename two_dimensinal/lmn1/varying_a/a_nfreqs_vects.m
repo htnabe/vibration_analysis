@@ -45,16 +45,16 @@ mode_degrees = [l, m, n];
 
 test_not_itr_related_variables(measures, young_modulus, poisson_ratios, modulus_rigidity, Delta, Qs, part_Ns, mode_degrees);
 
-  # make randam array(100) for test in iteration
-  is_enough_randum_num = false;
-  while(!is_enough_randum_num)
-    randum_num_array = round((14000 - 1).*rand(100, 1)+1); # 1 < randum number < 14000
-    unique_num_array = unique(randum_num_array);
-    unique_size = size(unique_num_array)(1);
-    if(unique_size == 100)
-      is_enough_randum_num = true;
-    end
+# make randam array(100) for test in iteration
+is_enough_randum_num = false;
+while(!is_enough_randum_num)
+  randum_num_array = round((14000 - 1).*rand(100, 1)+1); # 1 < randum number < 14000
+  unique_num_array = unique(randum_num_array);
+  unique_size = size(unique_num_array)(1);
+  if(unique_size == 100)
+    is_enough_randum_num = true;
   end
+end
 
 # checked the program below w/ Mathematica
 for cnt = 1:14001
