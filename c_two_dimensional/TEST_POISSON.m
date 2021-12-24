@@ -18,14 +18,14 @@ function TEST_POISSON(young_modulus, poisson_ratio)
 
   more_than_criteria = find(poisson_ratio>0.6);
   less_than_criteria = find(poisson_ratio<0);
-  is_valid_poisson = size(more_than_criteria)(2);
-  is_poisson_ratio_plus = size(less_than_criteria)(2);
+  is_invalid_poisson = size(more_than_criteria)(2);
+  is_poisson_ratio_minus = size(less_than_criteria)(2);
 
-  if is_valid_poisson == false
-    disp('Invalid poisson ratio's index: '),disp(more_than_criteria);
+  if is_invalid_poisson
+    disp('Invalid poisson ratio index: '),disp(more_than_criteria);
     error('Invalid poisson ratio is inputted(more than 0.6).');
-  elseif !is_poisson_ratio_plus == false
-    disp('Suspicious poisson ratio's index: '),disp(less_than_criteria);
+  elseif is_poisson_ratio_minus
+    disp('Suspicious poisson ratio index: '),disp(less_than_criteria);
     error('Invalid poisson ratio is inputted(less than 0).');
   end
   
