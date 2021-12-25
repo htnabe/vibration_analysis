@@ -96,6 +96,9 @@ for cnt = 1:N_arr_size
   end
 end
 
+TEST_NAF_EV(V, LAMBDA, matrix_N);
+disp(''), disp('PASSED ALL TESTS!');
+
 # write coefficient and young ratio data on the same files
 ratio_young = Ex./Ey;
 WRITE_COEFFICIENT(B, ratio_young, 'B');
