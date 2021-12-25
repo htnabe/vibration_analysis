@@ -85,7 +85,7 @@ for cnt = 1:N_arr_size
 end
 
 TEST_NAF_EV(V, LAMBDA, matrix_N);
-disp(''), disp('PASSED ALL TESTS!');
+disp(''), disp('PASSED ALL TESTS! YOU ARE SUPER GENIUS!');
 
 # write coefficient and young ratio data on the same files
 ratio_young = Ex./Ey;
