@@ -1,7 +1,7 @@
 function TEST_NAF_EV(V, LAMBDA, N)
   itr_cnt = max(size(N));
   for cnt = 1:itr_cnt
-    [t_V(:,:,cnt), t_LAMBDA(:,:,cnt)] = eig(N(:,:,cnt));
+    [t_V(:,:,cnt), t_LAMBDA(:,:,cnt)] = eigs(N(:,:,cnt));
   end
   is_eigen_vector_same = isequal(V, t_V);
   if !is_eigen_vector_same
