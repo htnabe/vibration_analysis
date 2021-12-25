@@ -20,4 +20,5 @@ function TEST_VARIABLES(measure_arr, digidity_modulus_arr)
         disp('Index of different digisity of modulus: '), disp(index);
         error('Wrong digidity of modulus is inputted.');
     end
+    disp('Measures and digidity of modulus passed TEST!');
 end

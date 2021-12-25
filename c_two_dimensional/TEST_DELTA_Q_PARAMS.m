@@ -19,4 +19,5 @@ function TEST_DELTA_Q_PARAMS(d, nxy, nxz, nyz, nyx, nzx, nzy, Ex, Ey, Ez, Qs)
       disp('Index of different Q: '), disp(index);
       error('Some of Q-parameters are wrong.');
     end
+    disp('Delta and Q-params passed TEST!');
 end

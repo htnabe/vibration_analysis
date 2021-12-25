@@ -31,4 +31,5 @@ function TEST_N(Qxx, Qxy, Qxz, Qyy, Qyz, Qzz, digidity_modulus, mode_degree, mea
         disp('The number of indexes of different N: '), disp(size(index));
         error('N in the main process is invalid.');
     end
+    disp('Elements of matrix N passed TEST!');
 end

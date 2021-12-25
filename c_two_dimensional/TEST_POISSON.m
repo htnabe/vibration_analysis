@@ -36,4 +36,5 @@ function TEST_POISSON(young_modulus, poisson_ratio)
       disp('Index of different N: '), disp(index);
       error('Wrong poisson ratio is inputted.');
   end
+  disp('Poisson ratios passed TEST!');
 end
