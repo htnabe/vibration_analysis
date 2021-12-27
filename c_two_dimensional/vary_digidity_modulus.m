@@ -14,7 +14,7 @@ measures = [a, b, c];
 digidity_modulus = [Gxy, Gxz, Gyz];
 TEST_VARIABLES(measures, digidity_modulus);
 
-Ex = [8*10^9:10^8:150*10^9];
+Ex = [10*10^9:10^8:100*10^9];
 nyx = Ey*nxy./Ex;
 nzx = Ez*nxz./Ex;
 nzy = Ez*nyz/Ey;
@@ -85,9 +85,9 @@ for cnt = 1:N_arr_size
 end
 
 TEST_NAF_EV(V, LAMBDA, matrix_N);
-disp(''), disp('PASSED ALL TESTS! YOU ARE SUPER GENIUS!');
+disp('PASSED ALL TESTS! YOU ARE SUPER GENIUS!');
 
-# write coefficient and young ratio data on the same files
+# write coefficients and young-ratios on the same files
 ratio_young = Ex./Ey;
 WRITE_COEFFICIENT(B, ratio_young, 'B');
 WRITE_COEFFICIENT(C, ratio_young, 'C');
