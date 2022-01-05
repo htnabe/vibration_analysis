@@ -14,7 +14,7 @@ measures = [a, b, c];
 digidity_modulus = [Gxy, Gxz, Gyz];
 TEST_VARIABLES(measures, digidity_modulus);
 
-Ex = [10*10^9:10^8:100*10^9];
+Ex = [9.5*10^9:10^8:100*10^9];
 nyx = Ey*nxy./Ex;
 nzx = Ez*nxz./Ex;
 nzy = Ez*nyz/Ey;
