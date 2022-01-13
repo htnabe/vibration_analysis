@@ -14,7 +14,7 @@ measures = [a, b, c];
 digidity_modulus = [Gxy, Gxz, Gyz];
 TEST_VARIABLES(measures, digidity_modulus);
 
-Ex = [9.5*10^9:10^8:100*10^9];
+Ex = [9.4*10^9:10^7:100*10^9];
 nyx = Ey*nxy./Ex;
 nzx = Ez*nxz./Ex;
 nzy = Ez*nyz/Ey;
@@ -92,6 +92,9 @@ ratio_young = Ex./Ey;
 WRITE_COEFFICIENT(B, ratio_young, 'B');
 WRITE_COEFFICIENT(C, ratio_young, 'C');
 WRITE_COEFFICIENT(D, ratio_young, 'D');
+
+# write delta's data
+WRITE_COEFFICIENT(Delta, ratio_young, 'delta');
 
 # write natural angular frequencies and eigen vectors on files
 WRITE_NAF(freq1, ratio_young, 1);
