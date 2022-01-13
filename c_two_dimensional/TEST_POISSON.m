@@ -1,5 +1,5 @@
 function TEST_POISSON(young_modulus, poisson_ratio)
-  t_Ex = [9.4*10^9:10^7:100*10^9];
+  t_Ex = [9.45*10^9:10^7:100*10^9];
   t_Ey = t_Ez = 10.50 * 10^9;
   t_nxy = t_nxz = 0.45;
   t_nyz = 0.59;
